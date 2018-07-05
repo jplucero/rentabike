@@ -4,6 +4,7 @@ import rentabike.DTO.ArrayOfRentsDTO;
 import rentabike.DTO.BikeDTO;
 import rentabike.DTO.Message;
 import rentabike.DTO.RentDTO;
+import rentabike.config.BussinessConf;
 import rentabike.interfaces.IRent;
 
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public ArrayOfRentsDTO validateRents (ArrayOfRentsDTO rents){
     List<String> messagesErrorRent = new ArrayList<String>();
     List<String> messagesError = new ArrayList<String>();
     List<String> messagesOK = new ArrayList<String>();
-    if (rentsSize < 6){
+    if (rentsSize <= BussinessConf.MAX_RENT_PURCHASE){
         for (RentDTO rent : rents.getRents()) {
             BikeBean bikeBean = new BikeBean();
             rent.setValid(false);
@@ -68,8 +69,8 @@ public ArrayOfRentsDTO validateRents (ArrayOfRentsDTO rents){
 public Double calculatePrice (RentDTO rent, Integer size){
     Double price = 0.0;
     price = rent.getRentType().getPrice() * rent.getTimeAmount();
-    if (size > 2) {
-        price = price * 0.7;
+    if (size > BussinessConf.MIN_RENT_FAMILY) {
+        price = price * BussinessConf.RENT_FAMILY_DISCOUNT;
     }
     return price;
 }
