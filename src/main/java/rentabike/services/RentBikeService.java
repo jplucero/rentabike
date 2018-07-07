@@ -17,6 +17,14 @@ public class RentBikeService {
     @Inject
     RentBean rentBean;
 
+    /**
+     *
+     * @param rents
+     * @return ArrayOfRentsDTO
+     * @author  Juan Pablo Lucero
+     * This rest receives a collection of rents in order to interact with the bussiness layer expecting a purchase result for those rents.
+     */
+
     @POST
     @Path("/new")
     public Response printMessage(@QueryParam("rents") ArrayOfRentsDTO rents) {

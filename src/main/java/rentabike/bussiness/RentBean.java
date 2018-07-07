@@ -28,6 +28,14 @@ public void dispose() {
 
 }
 
+    /**
+     *
+     * @param rents
+     * @return ArrayOfRentsDTO
+     * @author Juan Pablo Lucero
+     * This methods orchestrates the process for a bike rental, interacting with validation rules and the data layer.
+     */
+
 public ArrayOfRentsDTO addRents (ArrayOfRentsDTO rents){
     ArrayOfRentsDTO newRents = new ArrayOfRentsDTO();
     try {
@@ -45,6 +53,14 @@ public ArrayOfRentsDTO addRents (ArrayOfRentsDTO rents){
 
     return newRents;
 }
+
+    /**
+     *
+     * @param rents
+     * @return ArrayOfRentsDTO
+     * @author Juan Pablo Lucero
+     * This method is the core for bussiness validations.
+     */
 
 public ArrayOfRentsDTO validateRents (ArrayOfRentsDTO rents){
     ArrayOfRentsDTO arrayOfRents = new ArrayOfRentsDTO();
@@ -82,6 +98,15 @@ public ArrayOfRentsDTO validateRents (ArrayOfRentsDTO rents){
     }
     return arrayOfRents;
 }
+
+    /**
+     *
+     * @param rent
+     * @param size
+     * @return Double
+     * @author Juan Pablo Lucero
+     * Calculates price discount for family rental.
+     */
 
 public Double calculatePrice (RentDTO rent, Integer size){
     Double price = 0.0;
