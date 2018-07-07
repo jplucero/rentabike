@@ -70,14 +70,17 @@ public class RentTest {
 
         ArrayOfRentsDTO rents = new ArrayOfRentsDTO();
         List<RentDTO> list = new ArrayList<RentDTO>();
+        Double totalPrice = 0.0;
         for (int i=0;i<2;i++) {
-            list.add(newRent());
+            RentDTO rent = newRent();
+            list.add(rent);
+            totalPrice+= rent.getRentType().getPrice() * rent.getTimeAmount();
         }
         rents.setRents(list);
 
         RentBean bean = new RentBean();
         rents = bean.addRents(rents);
-        assert(rents.getPrice() == (double)10);
+        assertEquals(rents.getPrice(), totalPrice);
 
     }
 
@@ -85,15 +88,19 @@ public class RentTest {
     public void addRentsTestPriceDiscount() {
 
         ArrayOfRentsDTO rents = new ArrayOfRentsDTO();
+        RentBean bean = new RentBean();
         List<RentDTO> list = new ArrayList<RentDTO>();
+        Double totalPrice = 0.0;
         for (int i=0;i<5;i++) {
-            list.add(newRent());
+            RentDTO rent = newRent();
+            list.add(rent);
+            totalPrice+= rent.getRentType().getPrice() * rent.getTimeAmount();
         }
         rents.setRents(list);
 
-        RentBean bean = new RentBean();
         rents = bean.addRents(rents);
-        assert(rents.getPrice() == 17.5);
+        totalPrice = totalPrice * 0.7;
+        assertEquals(rents.getPrice() ,totalPrice);
 
     }
 
