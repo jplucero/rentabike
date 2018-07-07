@@ -28,7 +28,7 @@ public class CustomerBean {
      * Get the avilable customer list for a bike rental.
      */
 
-    public List<CustomerDTO> geCustomerDTOList (){
+    public List<CustomerDTO> geCustomerList (){
         List<CustomerDTO> customerList = new ArrayList<CustomerDTO>();
         /* DB CALL */
         return customerList;
