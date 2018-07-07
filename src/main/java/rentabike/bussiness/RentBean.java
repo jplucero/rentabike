@@ -5,12 +5,28 @@ import rentabike.DTO.BikeDTO;
 import rentabike.DTO.Message;
 import rentabike.DTO.RentDTO;
 import rentabike.config.BussinessConf;
+import rentabike.interceptor.LoggingInterceptor;
 import rentabike.interfaces.IRent;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.interceptor.Interceptors;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RentBean implements IRent {
+
+@Interceptors(LoggingInterceptor.class)
+
+@PostConstruct
+public void init() {
+
+}
+
+@PreDestroy
+public void dispose() {
+
+}
 
 public ArrayOfRentsDTO addRents (ArrayOfRentsDTO rents){
     ArrayOfRentsDTO newRents = new ArrayOfRentsDTO();
@@ -23,9 +39,10 @@ public ArrayOfRentsDTO addRents (ArrayOfRentsDTO rents){
     }
     catch (Exception ex){
         List<String> errorList = new ArrayList<String>();
-        errorList.add(Message.RENT_ERROR);
+        errorList.add(ex.getMessage());
         newRents.setMessagesError(errorList);
     }
+
     return newRents;
 }
 
