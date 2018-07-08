@@ -2,15 +2,15 @@ package rentabike.model;
 
 public class Bike {
 
-    private Short id;
+    private Integer id;
     private BikeModel bikeModel;
     private BikeStatus bikeStatus;
 
-    public Short getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Short id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
