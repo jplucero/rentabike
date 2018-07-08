@@ -10,6 +10,8 @@ import static org.junit.Assert.*;
 
 public class RentTest {
 
+    RentBean bean = new RentBean();
+
     private RentDTO newRent(){
         RentDTO rent = new RentDTO();
 
@@ -43,7 +45,6 @@ public class RentTest {
         list.add(newRent());
         rents.setRents(list);
 
-        RentBean bean = new RentBean();
         rents = bean.addRents(rents);
         assertEquals(true, rents.getValid());
 
@@ -59,7 +60,6 @@ public class RentTest {
         }
         rents.setRents(list);
 
-        RentBean bean = new RentBean();
         rents = bean.addRents(rents);
         assertEquals(false, rents.getValid());
 
@@ -78,7 +78,6 @@ public class RentTest {
         }
         rents.setRents(list);
 
-        RentBean bean = new RentBean();
         rents = bean.addRents(rents);
         assertEquals(rents.getPrice(), totalPrice);
 
@@ -88,7 +87,6 @@ public class RentTest {
     public void addRentsTestPriceDiscount() {
 
         ArrayOfRentsDTO rents = new ArrayOfRentsDTO();
-        RentBean bean = new RentBean();
         List<RentDTO> list = new ArrayList<RentDTO>();
         Double totalPrice = 0.0;
         for (int i=0;i<5;i++) {
@@ -109,7 +107,6 @@ public class RentTest {
 
         ArrayOfRentsDTO rents = new ArrayOfRentsDTO();
 
-        RentBean bean = new RentBean();
         rents = bean.addRents(rents);
         assert(rents.getMessagesError().size() > 0);
 

@@ -18,6 +18,7 @@ public class BikeBean {
     public BikeDTO getBike (Integer id){
         BikeDTO bike = new BikeDTO();
         /* DB CALL */
+        bike.setId(id);
         bike.setAvailable(true);
         return bike;
     }
@@ -31,6 +32,9 @@ public class BikeBean {
 
     public List<BikeDTO> getBikeList (){
         List<BikeDTO> bikeList = new ArrayList<BikeDTO>();
+        BikeDTO bike = new BikeDTO();
+        bike.setId(1);
+        bikeList.add(bike);
         /* DB CALL */
         return bikeList;
     }

@@ -16,9 +16,10 @@ public class CustomerBean {
      */
 
     public CustomerDTO getCustomer (Integer id){
-        CustomerDTO bike = new CustomerDTO();
+        CustomerDTO customer = new CustomerDTO();
         /* DB CALL */
-        return bike;
+        customer.setId(id);
+        return customer;
     }
 
     /**
@@ -30,7 +31,10 @@ public class CustomerBean {
 
     public List<CustomerDTO> geCustomerList (){
         List<CustomerDTO> customerList = new ArrayList<CustomerDTO>();
+        CustomerDTO customer = new CustomerDTO();
         /* DB CALL */
+        customer.setId(1);
+        customerList.add(customer);
         return customerList;
     }
 
